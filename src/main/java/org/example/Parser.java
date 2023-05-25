@@ -11,14 +11,14 @@ import org.kohsuke.args4j.Option;
 public class Parser {
 
     @Option(name = "-z", usage = "packing file", forbids = {"-u"})
-    public boolean pack = false;
+    private boolean pack = false;
 
     @Option(name = "-u", usage = "unpacking file", forbids = {"-z"})
-    public boolean unpack = false;
+    private boolean unpack = false;
 
 
     @Option(name = "-out", usage = "output to this file", metaVar = "OUTPUT")
-    public String out;
+    private String out;
 
 
     @Argument
@@ -39,9 +39,10 @@ public class Parser {
 
 
         String input = arguments.get(1);
-//        org.example.packRLE.RLE(pack, input, out);
-//        packRLEKt.RLE(pack, input, out);
 
+
+        packRLE p = new packRLE();
+        p.RLE(pack, input, out);
 
     }
 }
